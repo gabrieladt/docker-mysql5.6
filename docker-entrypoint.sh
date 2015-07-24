@@ -68,9 +68,9 @@ if [ "$1" = 'mysqld' ]; then
 		EOSQL
 
 		if [ "$MYSQL_DATABASE" ]; then
-			for i in $MYSQL_DATABASE
+			for name in "${MYSQL_DATABASE[@]}"; 
 				do
-				echo "CREATE DATABASE IF NOT EXISTS \`$i\` ;" >> "$tempSqlFile"
+				echo "CREATE DATABASE IF NOT EXISTS \`$name\` ;" >> "$tempSqlFile"
 			done
 		fi
 
